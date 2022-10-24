@@ -19,7 +19,7 @@ public class P2PMessageQueue {
             tail = oMessage;
         }
         else {
-            tail.next.equals(oMessage);
+            tail.next=(oMessage);
             tail = oMessage;
         }
     }
@@ -34,25 +34,18 @@ public class P2PMessageQueue {
             return null;
         } else {
             P2PMessage tempMsg = this.head;
-            tempMsg = head.next;
+            head = head.next;
             return tempMsg;
         }
-
-
-        CHECK CODE ABOVE ^^^^^ and below
-
-
-
     }
-
 
     public boolean hasNodes() {
 
         if (head == null) {
             return false;
-        } else {
+        }
+        else {
             return true;
         }
     }
 }
-
