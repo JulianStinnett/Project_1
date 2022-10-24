@@ -22,9 +22,7 @@ public class Miner implements Runnable{
      * @return
      */
     public boolean doProofOfWork(Block oBlock) {
-		#####################
-		### ADD CODE below ###
-		#####################
+
         int iNonce = 0;
         String sDiff = "";
         int i = 0;
@@ -32,7 +30,7 @@ public class Miner implements Runnable{
         while (i < oBlock.getDifficulty()){
             sDiff += "0";
             i++;
-            //iNonce++; ???
+
         }
 
         while(true) {
@@ -43,10 +41,16 @@ public class Miner implements Runnable{
                 return false;
             }
             else {
-                //??? iNonce
-                //oBlock.computeHash().startsWith(sDiff);
-            }
+                oBlock.setNonce(iNonce+ "");
+                oBlock.setHash(oBlock.computeHash());
+                if (oBlock.getHash().startsWith(sDiff)){
+                    return true;
+                }
+                else {
+                    iNonce++;
 
+                }
+            }
         }
     }
 
