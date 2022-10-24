@@ -75,4 +75,3 @@ public class BlockchainUtil {
             // do nothing.
         }
     }
-}
